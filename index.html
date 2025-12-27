@@ -47,7 +47,7 @@
   <meta name="citation_author" content="Schoellig, Angela P.">
   <meta name="citation_publication_date" content="2025">
   <meta name="citation_conference_title" content="todo">
-  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2511.06385">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/todo">
   
   <!-- Additional SEO, og #2563eb -->
   <meta name="theme-color" content="#3070B3">
@@ -244,25 +244,25 @@
               <div class="column has-text-centered">
                 <div class="publication-links" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5em;">
                   <span class="link-block" style="width:auto;">
-                    <a href="https://arxiv.org/pdf/2511.06385" target="_blank"
+                    <a href="https://arxiv.org/pdf/todo" target="_blank"
                     class="external-link button is-normal is-rounded is-dark pub-btn">
                       <span class="icon">
                         <i class="fas fa-file-pdf"></i>
                       </span>
-                      <span>Paper</span>
+                      <span>PDF</span>
                     </a>
                   </span>
                   <span class="link-block" style="width:auto;">
-                    <a href="https://arxiv.org/abs/2511.06385" target="_blank"
+                    <a href="https://arxiv.org/abs/todo" target="_blank"
                     class="external-link button is-normal is-rounded is-dark pub-btn">
                       <span class="icon">
                         <i class="ai ai-arxiv"></i>
                       </span>
-                      <span>arXiv</span>
+                      <span>arXiv (soon)</span>
                     </a>
                   </span>
                   <span class="link-block" style="width:auto;">
-                    <a href="https://github.com/todo" target="_blank"
+                    <a href="https://anonymous.4open.science/r/clare-ral/" target="_blank"
                     class="external-link button is-normal is-rounded is-dark pub-btn">
                       <span class="icon">
                         <i class="fab fa-github"></i>
@@ -298,6 +298,13 @@
     </div>
   </div>
 </section>
+
+<div class="columns is-centered is-vcentered" style="align-items: flex-start; margin-top: 1em;">
+          <figure style="display: flex; flex-direction: column; align-items: center;">
+            <img src="static/images/overview.png" alt="Motivation" style="width:30%; object-fit:contain;">
+            <!-- <figcaption style="margin-top:0.5em;">Figure 1: </figcaption> -->
+          </figure>
+        </div>
 
 <!-- Paper abstract -->
 <section class="section hero is-light" id="examples">
@@ -348,12 +355,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Motivation</h2>
-        <div class="columns is-centered is-vcentered" style="align-items: flex-start; margin-top: 1em;">
-          <figure style="display: flex; flex-direction: column; align-items: center;">
-            <img src="static/images/motivation.png" alt="Motivation" style="height:10cm; object-fit:contain;">
-            <!-- <figcaption style="margin-top:0.5em;">Figure 1: </figcaption> -->
-          </figure>
-        </div>
+        
         <div class="content has-text-justified">
           <!-- Text -->
           <p>
@@ -375,12 +377,21 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Method</h2>
-        <div class="columns is-centered is-vcentered" style="align-items: flex-start; margin-top: 1em;">
-          <figure style="display: flex; flex-direction: column; align-items: center;">
-            <img src="static/images/overview.png" alt="Method" style="width:100%; object-fit:contain;">
-            <!-- <figcaption style="margin-top:0.5em;">Figure 1: </figcaption> -->
-          </figure>
-        </div>
+        
+        <div class="columns is-multiline is-centered" style="margin-top: 1em;">
+          <div class="column is-half-tablet is-half-desktop">
+            <figure style="display:flex;flex-direction:column;align-items:center;">
+              <img src="static/images/expansion_routing.png" alt="Robomimic results" style="width:100%; max-width:600px; object-fit:contain;">
+              <figcaption style="margin-top:0.5em;">Expansion and Routing mechanisms</figcaption>
+            </figure>
+          </div>
+
+          <div class="column is-half-tablet is-half-desktop">
+            <figure style="display:flex;flex-direction:column;align-items:center;">
+              <img src="static/images/policy.png" alt="Real-world results" style="width:100%; max-width:600px; object-fit:contain;">
+              <figcaption style="margin-top:0.5em;">DiT architecture.</figcaption>
+            </figure>
+          </div>
         <!-- <img src="static/images/overview.png" alt="Shield illustration" style="width:100%; height:auto; margin-bottom:2em;"> -->
         <div class="content has-text-justified">
           <!-- Text -->
@@ -398,14 +409,14 @@
 <!-- End How -->
 
 <!-- Results -->
-<section class="section hero is-light">
+<section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Results</h2>
         <div class="columns is-centered is-vcentered" style="align-items: flex-start; margin-top: 1em;">
           <figure style="display: flex; flex-direction: column; align-items: center;">
-            <img src="static/images/sorting_paths.png" alt="Sorting Paths" style="width:60%; object-fit:contain;">
+            <img src="static/images/baseline_plot.png" alt="Sorting Paths" style="width:100%; object-fit:contain;">
           </figure>
         </div> 
         <div class="content has-text-justified">
@@ -419,24 +430,24 @@
         <div class="columns is-multiline is-centered" style="margin-top: 1em;">
           <div class="column is-half-tablet is-half-desktop">
             <figure style="display:flex;flex-direction:column;align-items:center;">
-              <img src="static/images/results_sim.png" alt="Robomimic results" style="width:100%; max-width:600px; object-fit:contain;">
-              <figcaption style="margin-top:0.5em;">Robomimic task success rate results on 100 rollouts. PACS achieves higher success rates than other safety filters.</figcaption>
+              <img src="static/images/baseline_table.png" alt="Robomimic results" style="width:100%; max-width:600px; object-fit:contain;">
+              <figcaption style="margin-top:0.5em;">Baseline comparison. CLARE achieves the highest overall
+      performance, as measured by AUC, and demonstrates strong capabilities
+to acquire new skills without forgetting.</figcaption>
             </figure>
           </div>
 
           <div class="column is-half-tablet is-half-desktop">
             <figure style="display:flex;flex-direction:column;align-items:center;">
-              <img src="static/images/results_real.png" alt="Real-world results" style="width:100%; max-width:600px; object-fit:contain;">
-              <figcaption style="margin-top:0.5em;">Impact of safeguarding in our real-world experiments. PACS guarantees safe deployment and maintains high task success, resulting in a high safe success rate.</figcaption>
+              <img src="static/images/ablation.png" alt="Real-world results" style="width:100%; max-width:600px; object-fit:contain;">
+              <figcaption style="margin-top:0.5em;">Ablation study for the dynamic expansion threshold γ. Increasing γ
+significantly reduces the number of adapters added to the model but slightly
+reduces the capability to learn new tasks, as shown by the small decrease
+in AUC and FWT. In contrast, NBT remains at around zero, indicating that
+the model does not exhibit catastrophic forgetting.</figcaption>
             </figure>
           </div>
 
-          <div class="column is-half-tablet is-half-desktop">
-            <figure style="display:flex;flex-direction:column;align-items:center;">
-              <img src="static/images/results_real_speed.png" alt="Speed comparison" style="width:80%; max-width:600px; object-fit:contain;">
-              <figcaption style="margin-top:0.5em;">Baseline comparison and speed analysis for the Sorting task. PACS achieves higher task performance than CBFs and can even perform the task faster than the nominal policy.</figcaption>
-            </figure>
-          </div>
         </div>
       </div>
     </div>
@@ -445,7 +456,7 @@
 
 
 <!-- Highlights -->
-<section class="section">
+<section class="section  hero is-light">
   <div class="container is-max-desktop has-text-centered">
     <h2 class="title is-3">Highlights</h2>
     <div class="columns is-centered has-text-centered">
