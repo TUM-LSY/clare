@@ -233,7 +233,7 @@
 
               <div class="is-size-5 publication-authors">
                 <span class="author-block">Learning Systems and Robotics Lab, Technical University of Munich</span>
-                <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution</small></span>
+                <span class="eql-cntrb"><small><br><sup>*</sup>Core Contributors</small></span>
               </div>
 
               <div class="is-flex is-justify-content-center is-align-items-center" style="gap: 0.5em; margin: 1em 0;">
@@ -382,7 +382,7 @@
           <div class="column is-half-tablet is-half-desktop">
             <figure style="display:flex;flex-direction:column;align-items:center;">
               <img src="static/images/expansion_routing.png" alt="Robomimic results" style="width:100%; max-width:600px; object-fit:contain;">
-              <figcaption style="margin-top:0.5em;">Expansion and Routing mechanisms</figcaption>
+              <figcaption style="margin-top:0.5em;">Routing and expansion mechanisms.</figcaption>
             </figure>
           </div>
 
@@ -397,8 +397,8 @@
           <!-- Text -->
           <p>
             We introduce CLARE (Continual Learning via Adapter Routing and Expansion), a framework that injects lightweight, trainable adapters into the feedforward layers of a frozen, pre-trained VLA. 
-            CLARE utilizes a Dynamic Expansion strategy that monitors feature statistics; it only adds new parameters when the incoming task data is sufficiently novel, preventing unnecessary capacity increase. 
-            During deployment, an Autonomous Routing mechanism uses autoencoder-based discriminators to analyze input features and dynamically activate the most relevant adapter for the current situation. 
+            CLARE utilizes a dynamic expansion strategy that monitors feature statistics; it only adds new parameters when the incoming task data is sufficiently novel, preventing unnecessary capacity increase. 
+            During deployment, an autonomous routing mechanism uses autoencoder-based discriminators to analyze input features and dynamically activate the most relevant adapter for the current situation. 
             This allows the robot to seamlessly switch between skills without needing explicit task commands.
           </p>
         </div>
@@ -464,11 +464,11 @@ the model does not exhibit catastrophic forgetting.</figcaption>
         <div class="content has-text-justified">
           PACS
           <ul>
-            <li><strong>Non-Exemplar Learning:</strong> Enables VLAs to learn sequentially without storing or replaying past data, respecting privacy and storage limits.</li>
+            <li><strong>Non-Exemplar Learning:</strong> Enables VLAs to learn sequentially without storing or replaying past data, respecting privacy and storage constraints.</li>
             <li><strong>Autonomous Adapter Routing:</strong> Automatically selects the correct task-specific module during inference based on feature similarity, eliminating the need for task IDs.</li>
             <li><strong>Dynamic Expansion:</strong> Efficiently adds new parameters only when necessary, maintaining a sub-linear growth in model size.</li>
             <li><strong>Prevents Catastrophic Forgetting:</strong> Preserves pre-trained representations while learning new skills, ensuring long-term stability.</li>
-            <li><strong>Superior Performance:</strong> Outperforms state-of-the-art continual learning baselines on the challenging LIBERO continual learning benchmark.</li>
+            <li><strong>Superior Performance:</strong> Outperforms state-of-the-art continual learning baselines on the challenging LIBERO benchmark.</li>
           </ul>
         </div>
       </div>
