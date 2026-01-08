@@ -224,7 +224,7 @@
             <div class="is-size-5 publication-authors">
               <!-- TODO: Replace with your paper authors and their personal links -->
               <span class="author-block">
-                <a href="https://ralfroemer99.github.io" target="_blank">Ralf Römer</a><sup>*</sup>,</span>
+                <a href="https://ralfroemer.com" target="_blank">Ralf Römer</a><sup>*</sup>,</span>
               <span class="author-block">
                 <a href="https://www.linkedin.com/in/yi-zhang-01a8aa245/" target="_blank">Yi Zhang</a><sup>*</sup>,</span>
               <span class="author-block">
@@ -233,7 +233,7 @@
 
               <div class="is-size-5 publication-authors">
                 <span class="author-block">Learning Systems and Robotics Lab, Technical University of Munich</span>
-                <span class="eql-cntrb"><small><br><sup>*</sup>Core Contributors</small></span>
+                <span class="eql-cntrb"><small><br><sup>*</sup>Equal contribution</small></span>
               </div>
 
               <div class="is-flex is-justify-content-center is-align-items-center" style="gap: 0.5em; margin: 1em 0;">
@@ -322,7 +322,7 @@
             previous data (exemplars), struggle with long task sequences,
             or rely on task identifiers for deployment. To address these
             limitations, we propose CLARE, a <strong>general, parameter-efficient</strong>
-            framework for non-exemplar continual learning with VLAs.
+            framework for <strong>non-exemplar continual learning with VLAs</strong>.
             CLARE introduces <strong>lightweight modular adapters</strong> into selected
             feedforward layers and autonomously expands the model only
             where necessary when learning a new task, guided by layer-wise
@@ -417,14 +417,15 @@
         <div class="columns is-centered is-vcentered" style="align-items: flex-start; margin-top: 1em;">
           <figure style="display: flex; flex-direction: column; align-items: center;">
             <img src="static/images/baseline_plot.png" alt="Sorting Paths" style="width:100%; object-fit:contain;">
+            <figcaption style="margin-top:0.5em;">Success rate curves of CLARE and five baselines on the LIBERO-Long benchmark.</figcaption>
           </figure>
         </div> 
         <div class="content has-text-justified">
           <!-- Text -->
           <p>
             We evaluated CLARE on the LIBERO benchmark using a sequence of 10 long-horizon manipulation tasks that require both language understanding and precise motor control. 
-            Our experiments demonstrate that CLARE achieves high success rates on new tasks (Forward Transfer) while effectively preventing the degradation of performance on previously learned tasks (Negative Backward Transfer). 
-            It significantly outperforms baselines like Sequential Fine-Tuning and LoRA, and even exceeds the performance of some methods that rely on experience replay, all while increasing the total parameter count by only approximately 2% per task.
+            Our experiments demonstrate that CLARE achieves high success rates on new tasks (FWT: Forward Transfer) while effectively preventing the degradation of performance on previously learned tasks (NBT: Negative Backward Transfer). 
+            It significantly outperforms baselines like Sequential Fine-Tuning and LoRA, and even exceeds the performance of two methods that rely on experience replay, all while increasing the total parameter count by only approximately 2% per task.
           </p>
         </div>
         <div class="columns is-multiline is-centered" style="margin-top: 1em;">
@@ -462,12 +463,12 @@ the model does not exhibit catastrophic forgetting.</figcaption>
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          PACS
+          Key features of CLARE include:
           <ul>
             <li><strong>Non-Exemplar Learning:</strong> Enables VLAs to learn sequentially without storing or replaying past data, respecting privacy and storage constraints.</li>
             <li><strong>Autonomous Adapter Routing:</strong> Automatically selects the correct task-specific module during inference based on feature similarity, eliminating the need for task IDs.</li>
             <li><strong>Dynamic Expansion:</strong> Efficiently adds new parameters only when necessary, maintaining a sub-linear growth in model size.</li>
-            <li><strong>Prevents Catastrophic Forgetting:</strong> Preserves pre-trained representations while learning new skills, ensuring long-term stability.</li>
+            <li><strong>Prevents Catastrophic Forgetting:</strong> Preserves pre-trained representations while learning new skills.</li>
             <li><strong>Superior Performance:</strong> Outperforms state-of-the-art continual learning baselines on the challenging LIBERO benchmark.</li>
           </ul>
         </div>
