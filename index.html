@@ -3,58 +3,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="CLARE: Continual Learning for Vision-Language-Action Models via Autonomous Adapter Routing and Expansion - Römer, Ralf; Schoellig, Angela P.">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="This paper presents a novel approach to safe deployment of diffusion policies without compromising task success.">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="robotics, imitation learning, VLAs, diffusion policies, continual learning">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="Römer, Ralf; Zhang, Yi; Schoellig, Angela P.">
+  <meta name="title" content="CLARE: Continual Learning for Vision-Language-Action Models via Autonomous Adapter Routing and Expansion">
+  <meta name="description" content="CLARE is a parameter-efficient framework for non-exemplar continual learning with VLAs. It achieves high performance on new tasks without catastrophic forgetting, validated in both simulation and real-world hardware experiments.">
+  <meta name="keywords" content="robotics, imitation learning, VLAs, diffusion policies, continual learning, adapter, catastrophic forgetting, lifelong learning">
+  <meta name="author" content="Römer, Ralf; Zhang, Yi; Li, Yuming; Schoellig, Angela P.">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
   <meta property="og:site_name" content="Learning Systems and Robotics Lab (LSY), TUM">
-  <!-- TODO: Same as paper title above -->
   <meta property="og:title" content="CLARE: Continual Learning for Vision-Language-Action Models via Autonomous Adapter Routing and Expansion">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="This paper presents a novel approach to safe deployment of diffusion policies without compromising task success.">
-  <!-- TODO: Replace with your actual website URL -->
+  <meta property="og:description" content="CLARE is a parameter-efficient framework for non-exemplar continual learning with VLAs. It achieves high performance on new tasks without catastrophic forgetting, validated in both simulation and real-world hardware experiments.">
   <meta property="og:url" content="https://tum-lsy.github.io/clare/">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
   <meta property="og:image" content="https://tum-lsy.github.io/clare/static/images/overview.png">
   <meta property="og:image:width" content="1500">
   <meta property="og:image:height" content="804">
   <meta property="og:image:alt" content="CLARE: Continual Learning for Vision-Language-Action Models via Autonomous Adapter Routing and Expansion">
   <meta property="article:published_time" content="2025-10-10T00:00:00.000Z">
-  <meta property="article:author" content="Römer, Ralf; Zhang, Yi; Schoellig, Angela P.">
+  <meta property="article:author" content="Römer, Ralf; Zhang, Yi; Li, Yuming; Schoellig, Angela P.">
   <meta property="article:section" content="Research">
   <meta property="article:tag" content="robotics">
   <meta property="article:tag" content="imitation learning">
   <meta property="article:tag" content="VLAs">
-  <meta property="article:tag" content="diffusion policies">
   <meta property="article:tag" content="continual learning">
 
   <!-- Academic/Research Specific -->
   <meta name="citation_title" content="CLARE: Continual Learning for Vision-Language-Action Models via Autonomous Adapter Routing and Expansion">
   <meta name="citation_author" content="Römer, Ralf">
   <meta name="citation_author" content="Zhang, Yi">
+  <meta name="citation_author" content="Li, Yuming">
   <meta name="citation_author" content="Schoellig, Angela P.">
   <meta name="citation_publication_date" content="2025">
-  <meta name="citation_conference_title" content="todo">
   <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2601.09512">
-  
-  <!-- Additional SEO, og #2563eb -->
+
+  <!-- Additional SEO -->
   <meta name="theme-color" content="#3070B3">
   <meta name="msapplication-TileColor" content="#3070B3">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
+
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,31 +52,73 @@
   <link rel="preconnect" href="https://documentcloud.adobe.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
-
-  <!-- TODO: Replace with your paper title and authors -->
   <title>CLARE: Continual Learning for Vision-Language-Action Models via Autonomous Adapter Routing and Expansion</title>
 
   <!-- Favicon and App Icons -->
   <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link rel="apple-touch-icon" href="static/images/favicon.ico"> -->
-  
+
   <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  
+
   <!-- Custom color overrides -->
   <style>
     section.hero.is-light {
       background-color: #efffef !important;
     }
+    .task-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5em;
+      margin: 1em 0;
+    }
+    .task-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .task-item img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .task-item .task-label {
+      font-size: 0.8em;
+      margin-top: 0.3em;
+      font-weight: 600;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .task-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .result-number {
+      font-size: 2em;
+      font-weight: 800;
+      color: #3070B3;
+      line-height: 1.1;
+    }
+    .result-label {
+      font-size: 0.85em;
+      color: #555;
+    }
+    .result-box {
+      text-align: center;
+      padding: 0.75em 1em;
+      border-radius: 8px;
+      background: #f5f5f5;
+    }
   </style>
-  
+
   <!-- Non-critical CSS - Load asynchronously -->
   <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
+
   <!-- Fallback for browsers that don't support preload -->
   <noscript>
     <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
@@ -94,10 +126,10 @@
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
-  
+
   <!-- Fonts - Optimized loading -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+
   <!-- Defer non-critical JavaScript -->
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
@@ -105,14 +137,14 @@
   <script defer src="static/js/bulma-carousel.min.js"></script>
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
-  
+
   <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "CLARE: Continual Learning for Vision-Language-Action Models via Autonomous Adapter Routing and Expansion",
-    "description": "This paper presents a novel approach to safe deployment of diffusion policies without compromising task success.",
+    "description": "CLARE is a parameter-efficient framework for non-exemplar continual learning with VLAs. It achieves high performance on new tasks without catastrophic forgetting, validated in both simulation and real-world hardware experiments.",
     "author": [
       {
         "@type": "Person",
@@ -132,56 +164,36 @@
       },
       {
         "@type": "Person",
-        "name": "Angela P. Schoellig",
+        "name": "Yuming Li",
         "affiliation": {
           "@type": "Organization",
           "name": "Learning Systems and Robotics Lab, Technical University of Munich"
         }
       },
-
+      {
+        "@type": "Person",
+        "name": "Angela P. Schoellig",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Learning Systems and Robotics Lab, Technical University of Munich"
+        }
+      }
     ],
     "datePublished": "2025-10-10",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Neural Information Processing Systems Foundation",
-      "url": "https://neurips.cc"
-    },
     "url": "https://tum-lsy.github.io/clare/",
     "image": "https://tum-lsy.github.io/clare/static/images/overview.png",
-    "keywords": ["robotics", "imitation learning", "VLAs", "diffusion policies", "continual learning"],
-    "abstract": "To teach robots complex manipulation tasks, it is now a common practice to fine-tune a pre-trained vision-language-action model (VLA) on task-specific data. However, since this recipe updates existing representations, it is unsuitable for long-term operation in the real world, where robots must continually adapt to new tasks and environments while retaining the knowledge they have already acquired. Existing continual learning methods for robotics commonly require storing previous data (exemplars), struggle with long task sequences, or rely on task identifiers for deployment. To address these limitations, we propose CLARE, a general, parameter-efficient framework for non-exemplar continual learning with VLAs. CLARE introduces lightweight modular adapters into selected feedforward layers and autonomously expands the model only where necessary when learning a new task, guided by layer-wise feature similarity. During deployment, an autoencoder-based routing mechanism dynamically activates the most relevant adapters without requiring task labels. Through extensive experiments on the LIBERO benchmark, we show that CLARE achieves high performance on new tasks without catastrophic forgetting of earlier tasks, significantly outperforming even exemplar-based methods.",
-    "citation": "@article{clare2025,\n  title={CLARE: Continual Learning for Vision-Language-Action Models via Autonomous Adapter Routing and Expansion},\n  author={Ralf R\"omer and Yi Zhang and Angela P. Schoellig},\n  booktitle={TODO},\n  year={TODO}\n}",
+    "keywords": ["robotics", "imitation learning", "VLAs", "continual learning", "adapter", "catastrophic forgetting"],
+    "abstract": "To teach robots complex manipulation tasks, it is now a common practice to fine-tune a pre-trained vision-language-action model (VLA) on task-specific data. However, since this recipe updates existing representations, it is unsuitable for long-term operation in the real world, where robots must continually adapt to new tasks and environments while retaining the knowledge they have already acquired. Existing continual learning methods for robotics commonly require storing previous data (exemplars), struggle with long task sequences, or rely on task identifiers for deployment. To address these limitations, we propose CLARE, a general, parameter-efficient framework for non-exemplar continual learning with VLAs. CLARE introduces lightweight modular adapters into selected feedforward layers and autonomously expands the model only where necessary when learning a new task, guided by layer-wise feature similarity. During deployment, an autoencoder-based routing mechanism dynamically activates the most relevant adapters without requiring task labels. Through extensive experiments on the LIBERO benchmark and five real-world tasks, we show that CLARE achieves high performance on new tasks without catastrophic forgetting of earlier tasks, significantly outperforming even exemplar-based methods.",
+    "citation": "@article{clare2025,\n  title={CLARE: Continual Learning for Vision-Language-Action Models via Autonomous Adapter Routing and Expansion},\n  author={Ralf R\"omer and Yi Zhang and Angela P. Schoellig},\n  journal={arXiv preprint arXiv:2601.09512},\n  year={2026}\n}",
     "isAccessibleForFree": true,
     "license": "https://creativecommons.org/licenses/by/4.0/",
     "mainEntity": {
       "@type": "WebPage",
       "@id": "https://tum-lsy.github.io/clare/"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "Robotics"
-      },
-      {
-        "@type": "Thing", 
-        "name": "Imitation Learning"
-      },
-      {
-        "@type": "Thing",
-        "name": "VLAs"
-      },
-      {
-        "@type": "Thing",
-        "name": "Diffusion Policies"
-      },
-      {
-        "@type": "Thing",
-        "name": "Continual Learning"
-      }
-    ]
+    }
   }
   </script>
-  
+
   <!-- Website/Organization Structured Data -->
   <script type="application/ld+json">
   {
@@ -189,11 +201,7 @@
     "@type": "Organization",
     "name": "Learning Systems and Robotics Lab, Technical University of Munich",
     "url": "https://www.dynsyslab.org",
-    "logo": "https://tum-lsy.github.io/clare/static/images/learnsyslab_logo.ico",
-    "sameAs": [
-      "https://www.linkedin.com/company/learnsyslab",
-      "https://github.com/utiasDSL"
-    ]
+    "logo": "https://tum-lsy.github.io/clare/static/images/learnsyslab_logo.ico"
   }
   </script>
 </head>
@@ -212,23 +220,17 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
             <h1 class="title is-2 publication-title">CLARE: Continual Learning for Vision-Language-Action Models via Autonomous Adapter Routing and Expansion</h1>
 
-            <!-- TODO: Replace with your paper venue and year -->
-            <!-- <div class="is-flex is-justify-content-center is-align-items-center" style="margin-bottom: 1em;">
-              <img src="static/images/NeurIPS-logo.svg" alt="NeurIPS Logo" style="height:5em; margin-right:0.5em;">
-              <span class="is-size-4 has-text-weight-bold" style="vertical-align:middle; color:#68448B;">NeurIPS 2025</span>
-            </div> -->
-
             <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
               <span class="author-block">
                 <a href="https://ralfroemer.com" target="_blank">Ralf Römer</a><sup>*</sup>,</span>
               <span class="author-block">
                 <a href="https://www.linkedin.com/in/yi-zhang-01a8aa245/" target="_blank">Yi Zhang</a><sup>*</sup>,</span>
               <span class="author-block">
-                <a href="https://www.dynsyslab.org/prof-angela-schoellig/" target="_blank">Angela P. Schoellig</a>,</span>
+                <a href="https://www.linkedin.com/in/yuming-li-6970792b1/" target="_blank">Yuming Li</a>,</span>
+              <span class="author-block">
+                <a href="https://www.dynsyslab.org/prof-angela-schoellig/" target="_blank">Angela P. Schoellig</a></span>
               </div>
 
               <div class="is-size-5 publication-authors">
@@ -237,8 +239,8 @@
               </div>
 
               <div class="is-flex is-justify-content-center is-align-items-center" style="gap: 0.5em; margin: 1em 0;">
-                <!-- <img src="static/images/learnsyslab_logo.png" alt="LSY" style="height:4em;"> -->
-                <img src="static/images/Logo_of_the_Technical_University_of_Munich.svg" alt="TUM" style="height:3em;">
+                <img src="static/images/learnsyslab_logo.png" alt="LSY" style="height:4em;">
+                <img src="static/images/Logo_of_the_Technical_University_of_Munich.svg" alt="TUM" style="height:2em;">
               </div>
 
               <div class="column has-text-centered">
@@ -270,20 +272,6 @@
                       <span>Code</span>
                     </a>
                   </span>
-                  <span class="link-block" style="width:auto;">
-                    <a href="https://huggingface.co/continuallearning" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark pub-btn">
-                      <span class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="1em" height="1em" fill="currentColor">
-                          <path d="M50 0C22.4 0 0 22.4 0 50s22.4 50 50 50 50-22.4 50-50S77.6 0 50 0zm0 90c-22.1 0-40-17.9-40-40S27.9 10 50 10s40 17.9 40 40-17.9 40-40 40z"/>
-                          <circle cx="35" cy="42" r="8"/>
-                          <circle cx="65" cy="42" r="8"/>
-                          <path d="M50 75c-11 0-20-6.7-20-15h40c0 8.3-9 15-20 15z"/>
-                        </svg>
-                      </span>
-                      <span>Huggingface</span>
-                    </a>
-                  </span>
                 </div>
               </div>
               <style>
@@ -304,7 +292,6 @@
                 }
               }
               </style>
-              </style>
             </div>
           </div>
         </div>
@@ -314,24 +301,22 @@
 </section>
 
 <div class="columns is-centered is-vcentered" style="align-items: flex-start; margin-top: 1em;">
-          <figure style="display: flex; flex-direction: column; align-items: center;">
-            <img src="static/images/overview.png" alt="Motivation" style="width:30%; object-fit:contain;">
-            <!-- <figcaption style="margin-top:0.5em;">Figure 1: </figcaption> -->
-          </figure>
-        </div>
+  <figure style="display: flex; flex-direction: column; align-items: center;">
+    <img src="static/images/overview.png" alt="CLARE overview" style="width:30%; object-fit:contain;">
+  </figure>
+</div>
 
 <!-- Paper abstract -->
-<section class="section hero is-light" id="examples">
+<section class="section hero is-light" id="abstract">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
           <p>
-            To teach robots complex manipulation tasks, it is now a common practice to fine-tune a pre-trained vision-language-action model (VLA) 
+            To teach robots complex manipulation tasks, it is now a common practice to fine-tune a pre-trained vision-language-action model (VLA)
             on task-specific data. However, since this recipe updates existing representations, it is unsuitable
-            for long-term operation in the real world, where robots must <strong>continually adapt</strong> to new tasks and environments while 
+            for long-term operation in the real world, where robots must <strong>continually adapt</strong> to new tasks and environments while
             <strong>retaining the knowledge they have already acquired</strong>. Existing continual learning methods for robotics commonly require storing
             previous data (exemplars), struggle with long task sequences,
             or rely on task identifiers for deployment. To address these
@@ -343,7 +328,7 @@
             feature similarity. During deployment, an autoencoder-based
             routing mechanism dynamically activates the most relevant
             adapters <strong>without requiring task labels</strong>. Through extensive
-            experiments on the LIBERO benchmark, we show that CLARE
+            experiments on the LIBERO benchmark <strong>and five real-world tasks</strong>, we show that CLARE
             achieves <strong>high performance on new tasks without catastrophic
             forgetting</strong> of earlier tasks, significantly outperforming even
             exemplar-based methods.
@@ -351,139 +336,351 @@
         </div>
       </div>
     </div>
-    <style>
-    @media (max-width: 600px), (max-width: 900px) and (orientation: landscape) {
-      .robot-pretzel-img {
-      justify-content: center !important;
-      margin: 0 !important;
-      }
-    }
-    </style>
   </div>
 </section>
 <!-- End paper abstract -->
 
-<!-- Why -->
+<!-- Motivation -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Motivation</h2>
-        
         <div class="content has-text-justified">
-          <!-- Text -->
           <p>
-            Deploying robots in dynamic real-world environments, such as homes or hospitals, requires them to continuously acquire new skills without losing previously learned capabilities. 
-            Standard fine-tuning of VLAs often leads to catastrophic forgetting, where new training overwrites critical prior knowledge. 
-            Moreover, reliance on storing past data for replay is often impractical due to privacy or storage constraints, and robots operating autonomously rarely have access to "oracle" task identifiers to tell them which skill to use. 
-            We address these challenges with a framework designed for lifelong learning that relies neither on stored exemplars nor on external task labels.
+            Deploying robots in dynamic real-world environments — such as homes or hospitals — requires them to continuously acquire new skills without losing previously learned capabilities.
+            Standard fine-tuning of VLAs leads to catastrophic forgetting, where new training overwrites critical prior knowledge.
+            Storing past data for experience replay is often impractical due to privacy or storage constraints.
+            Furthermore, robots operating autonomously rarely have access to explicit task identifiers to tell them which skill to use.
+            CLARE addresses all three challenges: no forgetting, no stored exemplars, no task labels.
           </p>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End Why -->
+<!-- End Motivation -->
 
-<!-- How -->
+<!-- Method -->
 <section class="section hero is-light">
   <div class="container is-max-desktop has-text-centered">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Method</h2>
-        
+
         <div class="columns is-multiline is-centered" style="margin-top: 1em;">
           <div class="column is-half-tablet is-half-desktop">
             <figure style="display:flex;flex-direction:column;align-items:center;">
-              <img src="static/images/expansion_routing.png" alt="Robomimic results" style="width:100%; max-width:600px; object-fit:contain;">
+              <img src="static/images/expansion_routing.png" alt="Routing and expansion" style="width:100%; max-width:600px; object-fit:contain;">
               <figcaption style="margin-top:0.5em;">Routing and expansion mechanisms.</figcaption>
             </figure>
           </div>
 
           <div class="column is-half-tablet is-half-desktop">
             <figure style="display:flex;flex-direction:column;align-items:center;">
-              <img src="static/images/policy.png" alt="Real-world results" style="width:100%; max-width:600px; object-fit:contain;">
-              <figcaption style="margin-top:0.5em;">DiT architecture.</figcaption>
+              <img src="static/images/policy.png" alt="DiT architecture" style="width:100%; max-width:600px; object-fit:contain;">
+              <figcaption style="margin-top:0.5em;">DiT policy architecture with CLARE adapters.</figcaption>
             </figure>
           </div>
-        <!-- <img src="static/images/overview.png" alt="Shield illustration" style="width:100%; height:auto; margin-bottom:2em;"> -->
+        </div>
+
         <div class="content has-text-justified">
-          <!-- Text -->
           <p>
-            We introduce CLARE (Continual Learning via Adapter Routing and Expansion), a framework that injects lightweight, trainable adapters into the feedforward layers of a frozen, pre-trained VLA. 
-            CLARE utilizes a dynamic expansion strategy that monitors feature statistics; it only adds new parameters when the incoming task data is sufficiently novel, preventing unnecessary capacity increase. 
-            During deployment, an autonomous routing mechanism uses autoencoder-based discriminators to analyze input features and dynamically activate the most relevant adapter for the current situation. 
-            This allows the robot to seamlessly switch between skills without needing explicit task commands.
+            CLARE injects lightweight, trainable adapters into selected modules in the observation conditioning pathway of a frozen, pre-trained VLA.
+            A <strong>dynamic expansion strategy</strong> monitors layer-wise feature statistics and only adds new adapter parameters when the incoming task data is sufficiently novel, preventing unnecessary capacity growth (~2% parameter increase per task in our experiments).
+            During deployment, an <strong>autonomous routing mechanism</strong> uses autoencoder-based discriminators to analyze input features and activate the most relevant adapter without requiring task labels.
+            This allows the robot to seamlessly switch between skills — even mid-execution — based purely on what it observes.
           </p>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End How -->
+<!-- End Method -->
 
-<!-- Results -->
-<section class="section">
+<!-- Hardware Experiments -->
+<section class="section" id="hardware">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Results</h2>
-        <div class="columns is-centered is-vcentered" style="align-items: flex-start; margin-top: 1em;">
-          <figure style="display: flex; flex-direction: column; align-items: center;">
-            <img src="static/images/baseline_plot.png" alt="Sorting Paths" style="width:100%; object-fit:contain;">
-            <figcaption style="margin-top:0.5em;">Success rate curves of CLARE and five baselines on the LIBERO-Long benchmark.</figcaption>
-          </figure>
-        </div> 
+        <h2 class="title is-3">Real-World Experiments</h2>
         <div class="content has-text-justified">
-          <!-- Text -->
           <p>
-            We evaluated CLARE on the LIBERO benchmark using a sequence of 10 long-horizon manipulation tasks that require both language understanding and precise motor control. 
-            Our experiments demonstrate that CLARE achieves high success rates on new tasks (FWT: Forward Transfer) while effectively preventing the degradation of performance on previously learned tasks (NBT: Negative Backward Transfer). 
-            It significantly outperforms baselines like Sequential Fine-Tuning and LoRA, and even exceeds the performance of two methods that rely on experience replay, all while increasing the total parameter count by only approximately 2% per task.
+            We validate CLARE across <strong>five sequentially learned manipulation tasks</strong>,
+            designed to cover a wide range of physical challenges: varying object weights (from 7 g Lego blocks to a 0.5 kg Moka pot),
+            distinct interaction dynamics (contact-rich insertion, leveraging friction to straighten an angled pot),
+            nonlinear friction profiles (plastic drawer), and multi-stage behavior with autonomous switching (pick, insert, close).
           </p>
         </div>
-        <div class="columns is-multiline is-centered" style="margin-top: 1em;">
-          <div class="column is-half-tablet is-half-desktop">
-            <figure style="display:flex;flex-direction:column;align-items:center;">
-              <img src="static/images/baseline_table.png" alt="Robomimic results" style="width:100%; max-width:600px; object-fit:contain;">
-              <figcaption style="margin-top:0.5em;">Baseline comparison. CLARE achieves the highest overall
-      performance, as measured by AUC, and demonstrates strong capabilities
-to acquire new skills without forgetting.</figcaption>
-            </figure>
-          </div>
 
-          <div class="column is-half-tablet is-half-desktop">
-            <figure style="display:flex;flex-direction:column;align-items:center;">
-              <img src="static/images/ablation.png" alt="Real-world results" style="width:100%; max-width:600px; object-fit:contain;">
-              <figcaption style="margin-top:0.5em;">Ablation study for the dynamic expansion threshold γ. Increasing γ
-significantly reduces the number of adapters added to the model but slightly
-reduces the capability to learn new tasks, as shown by the small decrease
-in AUC and FWT. In contrast, NBT remains at around zero, indicating that
-the model does not exhibit catastrophic forgetting.</figcaption>
-            </figure>
+        <!-- Task grid: start states -->
+        <div class="task-grid" style="margin-bottom: 0.25em;">
+          <div class="task-item">
+            <img src="static/images/0_put_bowl.jpg" alt="Task 1: Bowl — start">
           </div>
-
+          <div class="task-item">
+            <img src="static/images/1_stack_bowls.jpg" alt="Task 2: Stack — start">
+          </div>
+          <div class="task-item">
+            <img src="static/images/2_put_moka.jpg" alt="Task 3: Moka — start">
+          </div>
+          <div class="task-item">
+            <img src="static/images/3_close_drawer.jpg" alt="Task 4: Drawer — start">
+          </div>
+          <div class="task-item">
+            <img src="static/images/4_put_lego.jpg" alt="Task 5: Lego — start">
+          </div>
         </div>
+        <!-- Task grid: end states -->
+        <div class="task-grid" style="margin-bottom: 1.5em;">
+          <div class="task-item">
+            <img src="static/images/0_put_bowl_end.jpg" alt="Task 1: Bowl — end">
+            <span class="task-label">T1: Bowl</span>
+          </div>
+          <div class="task-item">
+            <img src="static/images/1_stack_bowls_end.jpg" alt="Task 2: Stack — end">
+            <span class="task-label">T2: Stack</span>
+          </div>
+          <div class="task-item">
+            <img src="static/images/2_put_moka_end.jpg" alt="Task 3: Moka — end">
+            <span class="task-label">T3: Moka</span>
+          </div>
+          <div class="task-item">
+            <img src="static/images/3_close_drawer_end.jpg" alt="Task 4: Drawer — end">
+            <span class="task-label">T4: Drawer</span>
+          </div>
+          <div class="task-item">
+            <img src="static/images/4_put_lego_end.jpg" alt="Task 5: Lego — end">
+            <span class="task-label">T5: Lego</span>
+          </div>
+        </div>
+        <p style="font-size:0.85em; color:#555; text-align:center; margin-bottom:1.5em;">
+          Start (top) and goal (bottom) states for each task.
+        </p>
+
+        <!-- Key numbers -->
+        <div class="columns is-centered" style="margin-bottom: 1.5em;">
+          <div class="column is-narrow">
+            <div class="result-box">
+              <div class="result-number">63.3%</div>
+              <div class="result-label">AUC (overall performance)</div>
+            </div>
+          </div>
+          <div class="column is-narrow">
+            <div class="result-box">
+              <div class="result-number">−2.9%</div>
+              <div class="result-label">NBT (zero forgetting)</div>
+            </div>
+          </div>
+          <div class="column is-narrow">
+            <div class="result-box">
+              <div class="result-number">&lt;3 ms</div>
+              <div class="result-label">Routing overhead per step</div>
+            </div>
+          </div>
+          <div class="column is-narrow">
+            <div class="result-box">
+              <div class="result-number">~2%</div>
+              <div class="result-label">Parameter growth per task</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="overflow-x:auto; margin-bottom:0.5em;">
+        <table class="table is-bordered is-striped is-narrow is-hoverable" style="font-size:0.85em; text-align:center; margin:0 auto;">
+          <thead>
+            <tr>
+              <th style="text-align:left;">Method</th>
+              <th>AUC ↑</th>
+              <th>FWT ↑</th>
+              <th>NBT ↓</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:left;">SeqFFT</td>
+              <td>23.8</td><td><strong>68.0</strong></td><td>80.0</td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">SeqLoRA</td>
+              <td>22.9</td><td>64.0</td><td>76.9</td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">ER</td>
+              <td>51.1</td><td>60.0</td><td>17.1</td>
+            </tr>
+            <tr style="background-color:#e8f4e8;">
+              <td style="text-align:left;"><strong>CLARE (ours)</strong></td>
+              <td><strong>63.3</strong></td><td>62.0</td><td><strong>−2.9</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <p style="font-size:0.82em; color:#555; text-align:center; margin-bottom:1.5em;">
+          Table IV: Overall results in our hardware experiments. <strong>Bold</strong>: best.
+        </p>
+
+        <div class="content has-text-justified">
+          <p>
+            CLARE achieves the <strong>highest overall AUC and zero forgetting</strong> across all five tasks,
+            significantly outperforming SeqFFT, SeqLoRA, and experience replay (ER).
+            Notably, CLARE is the only method that completely avoids catastrophic forgetting.
+            The routing mechanism remains robust to real-world sensory noise, lighting variation, and camera drift,
+            consistently activating the correct adapter for each new observation.
+            CLARE also demonstrates autonomous <strong>mid-task switching</strong>: when the language command changes from
+            <em>"put the Lego block into the drawer"</em> to <em>"close the drawer"</em>, the robot correctly adapts
+            its behavior within a single execution without any manual intervention.
+          </p>
+        </div>
+
+        <!-- Computation analysis -->
+        <figure style="display:flex;flex-direction:column;align-items:center; margin-top: 1.5em;">
+          <img src="static/images/computation_analysis_real.png" alt="Inference time and memory complexity — hardware" style="width:100%; max-width:700px; object-fit:contain;">
+          <figcaption style="margin-top:0.5em;">Inference time and memory complexity of CLARE in our hardware experiments. The routing overhead is negligible and GPU memory grows by only ~2% per learned task. Values for stages 6–10 are extrapolated.</figcaption>
+        </figure>
+
       </div>
     </div>
   </div>
 </section>
+<!-- End Hardware Experiments -->
 
+<!-- Simulation Results -->
+<section class="section hero is-light" id="results">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Simulation Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            We evaluate CLARE on the LIBERO benchmark across three suites:
+            <strong>LIBERO-Long</strong> (complex long-horizon tasks), <strong>LIBERO-Goal</strong> (varying task goals),
+            and <strong>LIBERO-Spatial</strong> (varying object placements), each with 10 sequentially arriving tasks.
+            CLARE achieves the highest AUC on all three suites, outperforming the best baseline (ER) by 10–14 percentage points,
+            while maintaining zero forgetting (NBT ≈ 0) — without storing any previous data.
+          </p>
+        </div>
+
+        <div style="overflow-x:auto; margin-bottom:0.5em;">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="font-size:0.82em; text-align:center;">
+          <thead>
+            <tr>
+              <th rowspan="2" style="vertical-align:middle; text-align:left;">Method</th>
+              <th colspan="3" style="text-align:center;">LIBERO-Long</th>
+              <th colspan="3" style="text-align:center;">LIBERO-Goal</th>
+              <th colspan="3" style="text-align:center;">LIBERO-Spatial</th>
+            </tr>
+            <tr>
+              <th>AUC ↑</th><th>FWT ↑</th><th>NBT ↓</th>
+              <th>AUC ↑</th><th>FWT ↑</th><th>NBT ↓</th>
+              <th>AUC ↑</th><th>FWT ↑</th><th>NBT ↓</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:left;">SeqFFT</td>
+              <td>22.4</td><td><u>76.1</u></td><td>74.7</td>
+              <td>26.7</td><td><u>94.1</u></td><td>95.3</td>
+              <td>27.7</td><td><strong>94.7</strong></td><td>94.6</td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">SeqLoRA</td>
+              <td>21.4</td><td>73.1</td><td>71.6</td>
+              <td>26.1</td><td>90.1</td><td>90.8</td>
+              <td>27.3</td><td>90.1</td><td>89.2</td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">PackNet</td>
+              <td>4.8</td><td>37.2</td><td>41.3</td>
+              <td>10.5</td><td>60.3</td><td>67.0</td>
+              <td>8.6</td><td>54.7</td><td>60.3</td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">ER</td>
+              <td><u>60.5</u></td><td><strong>76.6</strong></td><td>22.7</td>
+              <td>76.0</td><td><strong>94.4</strong></td><td>25.1</td>
+              <td><u>77.6</u></td><td><u>92.7</u></td><td>20.9</td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">LOTUS</td>
+              <td>52.9</td><td>58.1</td><td><strong>−7.2</strong></td>
+              <td>56.0</td><td>61.0</td><td>30.0</td>
+              <td>NA</td><td>NA</td><td>NA</td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">DMPEL</td>
+              <td>58</td><td>55</td><td>7</td>
+              <td><u>78</u></td><td>68</td><td><strong>0</strong></td>
+              <td>70</td><td>64</td><td><u>3</u></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">MLR</td>
+              <td>NA</td><td>NA</td><td>NA</td>
+              <td>77.2</td><td>80.0</td><td><u>6.9</u></td>
+              <td>NA</td><td>NA</td><td>NA</td>
+            </tr>
+            <tr style="background-color:#e8f4e8;">
+              <td style="text-align:left;"><strong>CLARE (ours)</strong></td>
+              <td><strong>75.1</strong></td><td>75.0</td><td><u>1.9</u></td>
+              <td><strong>89.3</strong></td><td>89.7</td><td><strong>0.3</strong></td>
+              <td><strong>87.4</strong></td><td>88.0</td><td><strong>0.9</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <p style="font-size:0.82em; color:#555; text-align:center; margin-bottom:1.5em;">
+          Table III: Baseline comparison across three LIBERO suites. <strong>Bold</strong>: best. <u>Underline</u>: second best.
+        </p>
+
+        <div class="content has-text-justified">
+          <p>
+            To assess <strong>long-term scalability</strong>, we created LIBERO-40: a new suite of 40 tasks drawn from all four LIBERO suites (Long -> Goal -> Spatial -> Object).
+            As shown below, CLARE successfully learns and retains all 40 tasks, whereas experience replay — despite having access to past data — exhibits significant performance degradation after just a few stages.
+          </p>
+        </div>
+
+        <figure style="display:flex;flex-direction:column;align-items:center; margin-bottom: 1.5em;">
+          <img src="static/images/libero_40.png" alt="LIBERO-40 long-term scalability" style="width:100%; object-fit:contain;">
+          <figcaption style="margin-top:0.5em;">Continual learning of 40 tasks on LIBERO-40. CLARE scales to long task sequences without forgetting, whereas ER exhibits significant performance degradation.</figcaption>
+        </figure>
+
+        <div class="columns is-multiline is-centered" style="margin-top: 1em;">
+          <div class="column is-half-tablet is-half-desktop">
+            <figure style="display:flex;flex-direction:column;align-items:center;">
+              <img src="static/images/ablation.png" alt="Expansion threshold ablation" style="width:100%; max-width:600px; object-fit:contain;">
+              <figcaption style="margin-top:0.5em;">Ablation of the dynamic expansion threshold γ. Higher γ reduces the number of added adapters with a moderate AUC decrease, while NBT stays near zero — the model never forgets.</figcaption>
+            </figure>
+          </div>
+
+          <div class="column is-half-tablet is-half-desktop">
+            <figure style="display:flex;flex-direction:column;align-items:center;">
+              <img src="static/images/computation_analysis.png" alt="Computation analysis on LIBERO-40" style="width:100%; max-width:600px; object-fit:contain;">
+              <figcaption style="margin-top:0.5em;">Inference time and memory complexity on LIBERO-40. Routing overhead is small compared to the base policy; memory grows by ~2% per task. At 40 tasks, storing data for ER requires 5× more memory than CLARE's adapters.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Simulation Results -->
 
 <!-- Highlights -->
-<section class="section  hero is-light">
+<section class="section">
   <div class="container is-max-desktop has-text-centered">
     <h2 class="title is-3">Highlights</h2>
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          Key features of CLARE include:
+          Key features of CLARE:
           <ul>
-            <li><strong>Non-Exemplar Learning:</strong> Enables VLAs to learn sequentially without storing or replaying past data, respecting privacy and storage constraints.</li>
-            <li><strong>Autonomous Adapter Routing:</strong> Automatically selects the correct task-specific module during inference based on feature similarity, eliminating the need for task IDs.</li>
-            <li><strong>Dynamic Expansion:</strong> Efficiently adds new parameters only when necessary, maintaining a sub-linear growth in model size.</li>
-            <li><strong>Prevents Catastrophic Forgetting:</strong> Preserves pre-trained representations while learning new skills.</li>
-            <li><strong>Superior Performance:</strong> Outperforms state-of-the-art continual learning baselines on the challenging LIBERO benchmark.</li>
+            <li><strong>Real-world validated:</strong> Tested on five physically diverse manipulation tasks. CLARE achieves AUC = 63.3% and zero forgetting (NBT = 2.9%), outperforming all baselines including experience replay.</li>
+            <li><strong>Non-exemplar learning:</strong> Sequentially learns new skills without storing or replaying past data, respecting privacy and storage constraints.</li>
+            <li><strong>Autonomous adapter routing:</strong> Selects the correct task-specific module during inference based on feature similarity — no task IDs needed, even when switching tasks mid-execution.</li>
+            <li><strong>Dynamic expansion:</strong> Adds new parameters only when necessary, achieving ~2% parameter growth per task with negligible (&lt;3 ms) routing overhead.</li>
+            <li><strong>Scales to 40 tasks:</strong> On LIBERO-40, CLARE retains all previously learned skills while ER exhibits catastrophic forgetting.</li>
+            <li><strong>Outperforms exemplar-based methods:</strong> Achieves higher AUC than ER across all benchmarks, without access to any previous data.</li>
           </ul>
         </div>
       </div>
@@ -493,7 +690,7 @@ the model does not exhibit catastrophic forgetting.</figcaption>
 <!-- End Highlights -->
 
 <!--BibTex citation -->
-<section class="section" id="BibTeX">
+<section class="section hero is-light" id="BibTeX">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths content">
@@ -506,7 +703,7 @@ the model does not exhibit catastrophic forgetting.</figcaption>
         </div>
         <pre id="bibtex-code"><code>@article{clare2025,
           title={CLARE: Continual Learning for Vision-Language-Action Models via Autonomous Adapter Routing and Expansion},
-          author={Ralf R{\"o}mer and Yi Zhang and Angela P. Schoellig},
+          author={Ralf R{\"o}mer and Yi Zhang and Yuming Li and Angela P. Schoellig},
           journal={arXiv preprint arXiv:2601.09512},
           year={2026}
         }</code></pre>
@@ -522,13 +719,11 @@ the model does not exhibit catastrophic forgetting.</figcaption>
     <div class="columns is-centered">
       <div class="column is-four-fifths content">
         <div class="content">
-
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            It is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            It is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
-
         </div>
         <!-- Visitor Counter -->
         <div id="visitor-count"
